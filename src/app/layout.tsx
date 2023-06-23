@@ -5,6 +5,7 @@ import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });
 import localFont from "next/font/local";
+import SidebarWithHeader from "@/components/Sidebar";
 
 const Poppins = localFont({
   src: "./Poppins-Regular.ttf",
@@ -29,7 +30,7 @@ export default function RootLayout({
 
       <body className={inter.className}>
       <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
-
+      <SidebarWithHeader />
         {children}
         </ThemeProvider>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.js" async></script>
