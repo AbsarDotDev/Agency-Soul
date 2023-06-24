@@ -7,6 +7,9 @@ import {
     TableHeader,
     TableRow,
   } from "@/components/ui/table"
+import ButtonWithIcon from "./iconbutton"
+import { Pencil, Trash2 } from "lucide-react"
+
   
   const invoices = [
     {
@@ -63,6 +66,8 @@ import {
             <TableHead>Status</TableHead>
             <TableHead>Method</TableHead>
             <TableHead className="text-right">Amount</TableHead>
+            <TableHead className="text-right">Action</TableHead>
+
           </TableRow>
         </TableHeader>
         <TableBody>
@@ -72,6 +77,16 @@ import {
               <TableCell>{invoice.paymentStatus}</TableCell>
               <TableCell>{invoice.paymentMethod}</TableCell>
               <TableCell className="text-right">{invoice.totalAmount}</TableCell>
+              <TableCell className="text-right"><div className="flex flex-col lg:flex-row justify-end gap-x-2 gap-y-2"><ButtonWithIcon
+        hoverColor="bg-lime-500"
+        buttonText="Edit"
+        icon={<Pencil className="mr-2 h-4 w-4" />}
+      /> <ButtonWithIcon
+      hoverColor="bg-red-600"
+      buttonText="Delete"
+      icon={<Trash2 className="mr-2 h-4 w-4" />}
+    /></div></TableCell>
+
             </TableRow>
           ))}
         </TableBody>
