@@ -16,6 +16,9 @@ module.exports = {
       },
     },
     extend: {
+      fontFamily: {
+        poppins: ['var(--font-poppins)'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
@@ -50,6 +53,7 @@ module.exports = {
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
+        
       },
       borderRadius: {
         lg: "var(--radius)",
