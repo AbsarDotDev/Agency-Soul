@@ -20,6 +20,7 @@ const formSchema = z.object({
 });
 
 export function ProfileForm() {
+    
     type ValidationSchema = z.infer<typeof formSchema>;
 
     const form = useForm<ValidationSchema>({
@@ -28,21 +29,14 @@ export function ProfileForm() {
     });
 
     const onSubmit: SubmitHandler<ValidationSchema> = (data) => {
+    
+            toast({
+                variant: "default",
+                title: "Successfully Added Data",
+            });
 
-        // if (form.formState.isValid) {
-        //     console.log(data);
-        //     toast({
-        //         variant: "default",
-        //         title: "Successfully Added Data",
-        //     });
-        // } else {
-        //     console.log(data);
-
-        //     toast({
-        //         variant: "destructive",
-        //         title: "Please fix the errors in the form",
-        //     });
-        // }
+         
+    
     };
     return (
         <Form {...form}>
