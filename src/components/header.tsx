@@ -5,6 +5,7 @@ import MainSearch from './main_search';
 import Image from 'next/image';
 import Link from 'next/link';
 import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
+import { Combobox } from './combobox';
 
 const Header = () => {
   return (
@@ -24,6 +25,7 @@ const Header = () => {
           </Link>
         </div>
         <div className="flex items-center">
+          <Combobox/>
         <MainSearch/>
         <ModeToggle/>
         <SignedIn>
