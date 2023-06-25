@@ -4,6 +4,7 @@ import { ModeToggle } from './toogleDarkMode';
 import MainSearch from './main_search';
 import Image from 'next/image';
 import Link from 'next/link';
+import { SignInButton, SignedIn, SignedOut, UserButton } from '@clerk/nextjs';
 
 const Header = () => {
   return (
@@ -25,7 +26,14 @@ const Header = () => {
         <div className="flex items-center">
         <MainSearch/>
         <ModeToggle/>
-            <div className="flex items-center ml-3">
+        <SignedIn>
+        {/* Mount the UserButton component */}
+        <UserButton />
+      </SignedIn>
+      <SignedOut>
+        {/* Signed out users get sign in button */}
+        <SignInButton mode="redirect" redirectUrl='/sign-in'/>
+      </SignedOut>             {/* <div className="flex items-center ml-3">
               <div>
                 <button type="button" className="flex text-sm bg-gray-800 rounded-full focus:ring-4 focus:ring-gray-300 dark:focus:ring-gray-600" aria-expanded="false" data-dropdown-toggle="dropdown-user">
                   <span className="sr-only">Open user menu</span>
@@ -57,7 +65,7 @@ const Header = () => {
                   </li>
                 </ul>
               </div>
-            </div>
+            </div> */}
           </div>
       </div>
     </div>
