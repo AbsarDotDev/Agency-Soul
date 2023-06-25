@@ -17,8 +17,8 @@ const ButtonWithIcon: React.FC<ButtonWithIconProps> = ({
 }) => {
   return (
     <Button className={`hover:${hoverColor}`}>
-      {icon} {buttonText}
-      <Link href={`${link}`}>Login</Link>
+      {icon}
+      <Link href={`${link}`}>{buttonText}</Link>
     </Button>
   );
 };
