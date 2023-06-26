@@ -1,5 +1,4 @@
 import SidebarWithHeader from "@/components/Sidebar";
-import { TableDemo } from "@/components/tables/inventory-category-table";
 import Header from "@/components/header";
 import Image from "next/image";
 import {

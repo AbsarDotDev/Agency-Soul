@@ -9,9 +9,10 @@ import {
     AlertDialogTitle,
     AlertDialogTrigger,
   } from "@/components/ui/alert-dialog"
-  import { Button } from "@/components/ui/button"
+  import { Button, buttonVariants } from "@/components/ui/button"
 import ButtonWithIcon from "./iconbutton"
 import { Trash2 } from "lucide-react"
+import { cn } from "@/lib/utils"
   
   export function DeletePopUp() {
     return (
@@ -29,7 +30,7 @@ import { Trash2 } from "lucide-react"
           </AlertDialogHeader>
           <AlertDialogFooter>
             <AlertDialogCancel>Cancel</AlertDialogCancel>
-            <AlertDialogAction>Continue</AlertDialogAction>
+            <AlertDialogAction className={cn(buttonVariants({ variant: "secondary" }))}>Continue</AlertDialogAction>
           </AlertDialogFooter>
         </AlertDialogContent>
       </AlertDialog>
