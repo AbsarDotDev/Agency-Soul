@@ -13,6 +13,8 @@ import {
   DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
+import { DeletePopUp } from "@/components/delete-popup"
+import { SheetSide } from "@/components/forms/inventory-category/edit-inventory-category"
 // This type is used to define the shape of our data.
 // You can use a Zod schema here if you want.
 export type InvCat = {
@@ -61,10 +63,10 @@ export const columns: ColumnDef<InvCat>[] = [
   },
   {
     header:  () => <div className="text-right">Actions</div>,
-    accessorKey: "id",
+    accessorKey: "actions",
     id: "actions",
     cell: ({ row }) => {
-      const payment = row.original
+      const cat_row = row.original
  
       return (
       <div className="text-right">  <DropdownMenu>
@@ -76,13 +78,14 @@ export const columns: ColumnDef<InvCat>[] = [
           </DropdownMenuTrigger>
           <DropdownMenuContent align="end">
             <DropdownMenuLabel>Actions</DropdownMenuLabel>
-            <DropdownMenuItem
-              onClick={() => navigator.clipboard.writeText((payment.id.toString()))}
+            <DropdownMenuItem asChild
+              onClick={() => navigator.clipboard.writeText((cat_row.id.toString()))}
             >
-              Edit
+               {/* @ts-ignore */}
+              <SheetSide id={cat_row.id} table_name="inventory_category"/>
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DropdownMenuItem asChild><DeletePopUp id={cat_row.id} table_name="inventory_category"/></DropdownMenuItem>
            
           </DropdownMenuContent>
         </DropdownMenu></div>

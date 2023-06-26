@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { useForm, SubmitHandler } from "react-hook-form"
-import { toast } from "../ui/use-toast"
+import { toast } from "../../ui/use-toast"
 const formSchema = z.object({
     invcat: z.string().min(2, {
         message: "Category name must be of at least 2 characters.",
