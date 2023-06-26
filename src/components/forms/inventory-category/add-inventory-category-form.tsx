@@ -6,15 +6,20 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Form, FormField, FormItem, FormLabel, FormControl, FormMessage } from "@/components/ui/form"
 import { useForm, SubmitHandler } from "react-hook-form"
-import { toast } from "../ui/use-toast"
+import { toast } from "../../ui/use-toast"
+import { supabaseClient } from "@/lib/supabaseClient"
+import { useAuth } from "@clerk/nextjs"
+import { useRouter } from "next/navigation"
 const formSchema = z.object({
     invcat: z.string().min(2, {
         message: "Category name must be of at least 2 characters.",
     }),
 });
 
+
 export function InCatForm() {
-    
+    const router =useRouter()
+    const { getToken } = useAuth();
     type ValidationSchema = z.infer<typeof formSchema>;
 
     const form = useForm<ValidationSchema>({
@@ -22,14 +27,16 @@ export function InCatForm() {
 
     });
 
-    const onSubmit: SubmitHandler<ValidationSchema> = (data) => {
-    
+    const onSubmit: SubmitHandler<ValidationSchema> = async(data) => {
+        const token= await getToken({template:"supabase"});
+        const supabase=await supabaseClient(token);
+        const {error}=await supabase.from("inventory_category").insert({"cat_name":data.invcat})
             toast({
                 variant: "default",
                 title: "Category Added Successfully",
             });
 
-         
+         router.push('/inventory-category')
     
     };
     return (

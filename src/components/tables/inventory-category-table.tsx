@@ -58,7 +58,6 @@ export function InvCatTable() {
                   link="/inventory-category/edit"
                   icon={<Pencil className="mr-2 h-4 w-4" />}
                 />
-                <DeletePopUp/>
               </div>
             </TableCell>
           </TableRow>
