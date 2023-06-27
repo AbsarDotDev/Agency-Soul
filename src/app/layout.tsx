@@ -29,12 +29,12 @@ export default function RootLayout({
   return (
     <ClerkProvider> 
       <html lang="en" className={`${Poppins.variable}`}>
-        <head>
-          <link
+
+         <head> <link
             href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.5/flowbite.min.css"
             rel="stylesheet"
           />
-        </head>
+</head>
 
         <body className={inter.className}>
           <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
